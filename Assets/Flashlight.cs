@@ -14,6 +14,6 @@ public class Flashlight : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         cursorPosition = Input.mousePosition;
-        transform.position = Vector3.Lerp(transform.position, new Vector3((-cursorPosition.x + (Screen.width / 2)) / (Screen.width / 23), (cursorPosition.y - 540.0f) / 85.5f, 0.2f), moveSpeed);
+        transform.position = Vector3.Lerp(transform.position, new Vector3((-cursorPosition.x + ((Screen.width / 2)) + 0.3f) / (Screen.width / 23), (cursorPosition.y - 540.0f) / 85.5f, 0.2f), moveSpeed);
     }
 }
