@@ -46,7 +46,7 @@ public class GameManager : SingletonBehaviour<GameManager> {
 
         if (!gameFinished && !fellOff) {
             if (torch.intensity > 0.25f) {
-                torch.intensity -= Time.deltaTime * 0.08f;
+                torch.intensity -= Time.deltaTime * 0.09f;
             } else {
                 //Ran out of time
                 outtaTime = true;
