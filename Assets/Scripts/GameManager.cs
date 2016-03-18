@@ -9,6 +9,7 @@ public class GameManager : SingletonBehaviour<GameManager> {
     public bool gameFinished;
     public bool outtaTime;
     public bool fellOff;
+    public float randSoundCountdown;
 
     public Light torch;
     public Component halo;
@@ -28,6 +29,7 @@ public class GameManager : SingletonBehaviour<GameManager> {
         gameFinished = true;
         outtaTime = false;
         fellOff = false;
+        randSoundCountdown = 15.0f;
 
         //Setup for the flashlight being turned on and off
         torch.enabled = false;
@@ -64,6 +66,14 @@ public class GameManager : SingletonBehaviour<GameManager> {
                 //Deactivate the End Tile and activate the Start Tile
                 endTile.SetActive(false);
                 startTile.SetActive(true);
+            }
+
+            //Random sounds coming from whatever lurks in the darkness
+            if(randSoundCountdown > 0.0f) {
+                randSoundCountdown -= Time.deltaTime;
+            } else {
+                AudioManager.Instance.RandomAudioSound();
+                randSoundCountdown = 15.0f;
             }
         }
     }

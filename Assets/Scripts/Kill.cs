@@ -8,6 +8,7 @@ public class Kill : MonoBehaviour {
     void OnMouseEnter() {
         if (!GameManager.Instance.startTile.activeSelf) {
             //Death sound
+            AudioManager.Instance.DeathAudioSound();
 
             //Randomly generate a number for the rotation of the blood pool
             randRotation = Random.Range(0, 360);
